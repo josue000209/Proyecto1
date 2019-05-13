@@ -10,8 +10,12 @@ import android.view.View;
 import android.view.animation.AnimationUtils;
 import android.view.animation.Interpolator;
 
-public class MainActivity extends AppCompatActivity {
+import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout;
 
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+
+//    boolean click = false;
+    private FABToolbarLayout morph;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,6 +23,52 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        morph = (FABToolbarLayout) findViewById(R.id.fabtoolbar);
+
+        View uno, dos, tres, cuatro;
+
+        uno = findViewById(R.id.uno);
+        dos = findViewById(R.id.dos);
+        cuatro = findViewById(R.id.cuatro);
+        tres = findViewById(R.id.tres);
+
+        fab.setOnClickListener(this);
+        uno.setOnClickListener(this);
+        dos.setOnClickListener(this);
+        tres.setOnClickListener(this);
+        cuatro.setOnClickListener(this);
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.fab) {
+            morph.show();
+        }
+
+        morph.hide();
+
+/*
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setImageResource(R.drawable.ic_launcher_background);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                click = !click;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+                    Interpolator interpolador = AnimationUtils.loadInterpolator(getBaseContext(),
+                            android.R.interpolator.fast_out_slow_in);
+
+                    view.animate()
+                            .rotation(click ? 45f : 0)
+                            .setInterpolator(interpolador)
+                            .start();
+                }
+            }
+        });*/
+/*
         final FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setScaleX(0);
         fab.setScaleY(0);
@@ -59,6 +109,7 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                     });
+
         }
 
         fab.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
                 Snackbar.make(view, "Se presiono el FAB", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
     }
 /*
     @Override
