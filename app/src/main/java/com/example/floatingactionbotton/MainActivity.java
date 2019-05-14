@@ -12,17 +12,17 @@ import android.view.animation.Interpolator;
 
 import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends AppCompatActivity /*implements View.OnClickListener*/ {
 
 //    boolean click = false;
-    private FABToolbarLayout morph;
+//    private FABToolbarLayout morph;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+/*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         morph = (FABToolbarLayout) findViewById(R.id.fabtoolbar);
 
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             morph.show();
         }
 
-        morph.hide();
+        morph.hide();*/
 
 /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
