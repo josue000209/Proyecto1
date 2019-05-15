@@ -1,7 +1,15 @@
 package com.example.floatingactionbotton;
 
 import android.animation.Animator;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.CoordinatorLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.ActionBar;
+import android.view.MenuItem;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -14,14 +22,47 @@ import com.github.fafaldo.fabtoolbar.widget.FABToolbarLayout;
 
 public class MainActivity extends AppCompatActivity /*implements View.OnClickListener*/ {
 
-//    boolean click = false;
+
+    //    boolean click = false;
 //    private FABToolbarLayout morph;
+    private Toolbar toolbar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
+         toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
+
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectecLister);
+        toolbar.setTitle("Shop");
+        toolbar.setTitleTextColor(Color.WHITE);
+    }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectecLister = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+           // Fragment fragment;
+            switch (item.getItemId()) {
+                case R.id.navigation_shop:
+                    toolbar.setTitle("Shop");
+                    return true;
+                case R.id.navigation_gifts:
+                    toolbar.setTitle("My Gifts");
+                    return true;
+                case R.id.navigation_cart:
+                    toolbar.setTitle("Cart");
+                    return true;
+                case R.id.navigation_porfile:
+                    toolbar.setTitle("Profile");
+                    return true;
+            }
+            return false;
+        }
+    };
+}
+
+    //setSupportActionBar(toolbar);
 /*
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         morph = (FABToolbarLayout) findViewById(R.id.fabtoolbar);
@@ -119,7 +160,9 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
                         .setAction("Action", null).show();
             }
         });*/
-    }
+
+
+
 /*
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -136,4 +179,4 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
 
         return super.onOptionsItemSelected(item);
     }*/
-}
+
