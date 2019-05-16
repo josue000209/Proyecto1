@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="bgBottomNavigation">#fe485a</color>
 
+    <color name="fragmentStore">#f1f5f7</color>
     <color name="negro_semitransparente">#B2000000</color>
     <color name="blanco">#fafafa</color>
 </resources>
