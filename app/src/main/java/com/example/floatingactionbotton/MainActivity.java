@@ -26,13 +26,17 @@ public class MainActivity extends AppCompatActivity /*implements View.OnClickLis
     //    boolean click = false;
 //    private FABToolbarLayout morph;
     private Toolbar toolbar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        BottomNavigationView navigation=(BottomNavigationView) findViewById(R.id.navigation);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectecLister);
+        CoordinatorLayout.LayoutParams layoutParams=(CoordinatorLayout.LayoutParams)navigation.getLayoutParams();
+        layoutParams.setBehavior(new BottomNavigationBehavior());
 
-       BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectecLister);
         toolbar.setTitle("Shop");
